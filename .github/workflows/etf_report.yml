@@ -2,8 +2,8 @@ name: MY ETF Portfolio Report
 
 on:
   schedule:
-    - cron: '0 16 * * *'   # 17:00 Lisbon (WEST, UTC+1)
-  workflow_dispatch:        # allows manual trigger from GitHub UI
+    - cron: '0 18 * * *'
+  workflow_dispatch:
 
 jobs:
   run-report:
