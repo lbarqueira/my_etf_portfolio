@@ -2,7 +2,7 @@ name: MY ETF Portfolio Report
 
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '11 21 * * *'
   workflow_dispatch:
 
 jobs:
