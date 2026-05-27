@@ -1,0 +1,17 @@
+# Runner script (has hardcoded secrets)
+run.sh
+
+# Notebook outputs (generated at runtime)
+out_etf_portfolio.ipynb
+etf_portfolio_*/
+
+# Python virtual environment
+.venv/
+
+# Logs
+*.log
+
+# OS clutter
+.DS_Store
+__pycache__/
+*.pyc

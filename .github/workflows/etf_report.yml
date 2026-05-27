@@ -1,0 +1,34 @@
+name: MY ETF Portfolio Report
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 13:00 UTC daily — adjust to your timezone
+  workflow_dispatch:        # allows manual trigger from GitHub UI
+
+jobs:
+  run-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run notebook with papermill
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          papermill etf_portfolio_report.ipynb out_etf_portfolio.ipynb \
+            -p PERIOD 1M
+
+      - name: Send email with PDF
+        env:
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+        run: python send.py
