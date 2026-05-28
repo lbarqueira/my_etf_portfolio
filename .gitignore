@@ -1,7 +1,7 @@
 # Runner script (has hardcoded secrets)
 run.sh
 
-# important.txt (contains important notes and secrets)
+# important.txt (contains important notes and secrets for local running, should not be committed to version control)
 important.txt
 
 # Notebook outputs (generated at runtime)
